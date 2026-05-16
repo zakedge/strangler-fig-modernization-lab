@@ -9,7 +9,9 @@
         "transaction_type": "debit",
         "merchant": "Amazon",
         "category": "Shopping",
-        "notes": "extra spaces in customer name"
+        "notes": "extra spaces in customer name",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1002",
@@ -21,7 +23,9 @@
         "transaction_type": "credit",
         "merchant": "Payroll",
         "category": "Salary",
-        "notes": "currency lowercase and status mixed case"
+        "notes": "currency lowercase and status mixed case",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1003",
@@ -33,7 +37,9 @@
         "transaction_type": "debit",
         "merchant": "Uber",
         "category": "Transport",
-        "notes": "date format different"
+        "notes": "date format different",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1004",
@@ -45,7 +51,9 @@
         "transaction_type": "debit",
         "merchant": "Netflix",
         "category": "Entertainment",
-        "notes": "date is text"
+        "notes": "date is text",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1005",
@@ -57,7 +65,11 @@
         "transaction_type": "debit",
         "merchant": "Walmart",
         "category": "Groceries",
-        "notes": "missing amount"
+        "notes": "missing amount",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing amount"
+        ]
     },
     {
         "transaction_id": "TXN-1006",
@@ -69,7 +81,11 @@
         "transaction_type": "credit",
         "merchant": "Client Payment",
         "category": "Income",
-        "notes": "missing currency"
+        "notes": "missing currency",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
     },
     {
         "transaction_id": "TXN-1007",
@@ -81,7 +97,9 @@
         "transaction_type": "debit",
         "merchant": "Starbucks",
         "category": "Food",
-        "notes": "amount has dollar sign"
+        "notes": "amount has dollar sign",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1008",
@@ -93,7 +111,9 @@
         "transaction_type": "credit",
         "merchant": "Refund",
         "category": "Refund",
-        "notes": "amount has comma"
+        "notes": "amount has comma",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1009",
@@ -105,7 +125,9 @@
         "transaction_type": "debit",
         "merchant": "Apple",
         "category": "Electronics",
-        "notes": "invalid date month"
+        "notes": "invalid date month",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1010",
@@ -117,7 +139,9 @@
         "transaction_type": "debit",
         "merchant": "Target",
         "category": "Shopping",
-        "notes": "invalid amount text"
+        "notes": "invalid amount text",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1011",
@@ -129,7 +153,9 @@
         "transaction_type": "debit",
         "merchant": "Delta Airlines",
         "category": "Travel",
-        "notes": "leading and trailing spaces"
+        "notes": "leading and trailing spaces",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1012",
@@ -141,7 +167,11 @@
         "transaction_type": "debit",
         "merchant": "Spotify",
         "category": "Entertainment",
-        "notes": "non USD currency"
+        "notes": "non USD currency",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
     },
     {
         "transaction_id": "TXN-1013",
@@ -153,7 +183,9 @@
         "transaction_type": "debit",
         "merchant": "Unknown",
         "category": "Misc",
-        "notes": "zero amount"
+        "notes": "zero amount",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1014",
@@ -165,7 +197,9 @@
         "transaction_type": "credit",
         "merchant": "Wire Transfer",
         "category": "Income",
-        "notes": "suspiciously large amount"
+        "notes": "suspiciously large amount",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1015",
@@ -177,7 +211,9 @@
         "transaction_type": "debit",
         "merchant": "",
         "category": "Food",
-        "notes": "missing merchant"
+        "notes": "missing merchant",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1016",
@@ -189,7 +225,9 @@
         "transaction_type": "debit",
         "merchant": "McDonalds",
         "category": "Food",
-        "notes": "missing account id"
+        "notes": "missing account id",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "",
@@ -201,7 +239,11 @@
         "transaction_type": "debit",
         "merchant": "Shell",
         "category": "Fuel",
-        "notes": "missing transaction id"
+        "notes": "missing transaction id",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing transaction ID"
+        ]
     },
     {
         "transaction_id": "TXN-1018",
@@ -213,7 +255,11 @@
         "transaction_type": "transfer",
         "merchant": "Zelle",
         "category": "Transfer",
-        "notes": "transaction type not debit or credit"
+        "notes": "transaction type not debit or credit",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid transaction type"
+        ]
     },
     {
         "transaction_id": "TXN-1019",
@@ -225,7 +271,9 @@
         "transaction_type": "debit",
         "merchant": "Amazon",
         "category": "Shopping",
-        "notes": "failed transaction"
+        "notes": "failed transaction",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1020",
@@ -237,7 +285,9 @@
         "transaction_type": "debit",
         "merchant": "Whole Foods",
         "category": "Groceries",
-        "notes": "normal row"
+        "notes": "normal row",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1020",
@@ -249,7 +299,11 @@
         "transaction_type": "debit",
         "merchant": "Whole Foods",
         "category": "Groceries",
-        "notes": "duplicate transaction id"
+        "notes": "duplicate transaction id",
+        "is_valid": false,
+        "validation_errors": [
+            "Duplicate transaction ID"
+        ]
     },
     {
         "transaction_id": "TXN-1021",
@@ -261,7 +315,9 @@
         "transaction_type": "credit",
         "merchant": "Bonus",
         "category": "Income",
-        "notes": "amount has spaces"
+        "notes": "amount has spaces",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1022",
@@ -273,7 +329,9 @@
         "transaction_type": "debit",
         "merchant": "CVS",
         "category": "Health",
-        "notes": "currency lowercase"
+        "notes": "currency lowercase",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1023",
@@ -285,7 +343,9 @@
         "transaction_type": "debit",
         "merchant": "Subway",
         "category": "Food",
-        "notes": "transaction type uppercase"
+        "notes": "transaction type uppercase",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1024",
@@ -297,7 +357,11 @@
         "transaction_type": "debit",
         "merchant": "Best Buy",
         "category": "Electronics",
-        "notes": "amount is NULL string"
+        "notes": "amount is NULL string",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing amount"
+        ]
     },
     {
         "transaction_id": "TXN-1025",
@@ -309,7 +373,11 @@
         "transaction_type": "debit",
         "merchant": "Gas Station",
         "category": "Fuel",
-        "notes": "invalid currency with space"
+        "notes": "invalid currency with space",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
     },
     {
         "transaction_id": "TXN-1026",
@@ -321,7 +389,9 @@
         "transaction_type": "debit",
         "merchant": "Trader Joe's",
         "category": "Groceries",
-        "notes": "status has spaces"
+        "notes": "status has spaces",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1027",
@@ -333,7 +403,9 @@
         "transaction_type": "debit",
         "merchant": "Rent Payment",
         "category": "Housing",
-        "notes": "large debit"
+        "notes": "large debit",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1028",
@@ -345,7 +417,9 @@
         "transaction_type": "credit",
         "merchant": "Refund",
         "category": "Refund",
-        "notes": "ambiguous date format"
+        "notes": "ambiguous date format",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1029",
@@ -357,7 +431,9 @@
         "transaction_type": "debit",
         "merchant": "Restaurant",
         "category": "Food",
-        "notes": ""
+        "notes": "",
+        "is_valid": true,
+        "validation_errors": []
     },
     {
         "transaction_id": "TXN-1030",
@@ -369,6 +445,8 @@
         "transaction_type": "debit",
         "merchant": "Book Store",
         "category": "Education",
-        "notes": ""
+        "notes": "",
+        "is_valid": true,
+        "validation_errors": []
     }
 ]
