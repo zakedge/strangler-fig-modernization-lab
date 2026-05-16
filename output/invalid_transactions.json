@@ -1,0 +1,146 @@
+[
+    {
+        "transaction_id": "TXN-1005",
+        "account_id": "ACC-005",
+        "customer_name": "Robert King",
+        "transaction_date": "2024-01-09",
+        "amount": "",
+        "currency": "USD",
+        "transaction_type": "debit",
+        "merchant": "Walmart",
+        "category": "Groceries",
+        "notes": "missing amount",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing amount"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1006",
+        "account_id": "ACC-006",
+        "customer_name": "Ana Gomez",
+        "transaction_date": "2024-01-10",
+        "amount": "1200.00",
+        "currency": "",
+        "transaction_type": "credit",
+        "merchant": "Client Payment",
+        "category": "Income",
+        "notes": "missing currency",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1010",
+        "account_id": "ACC-010",
+        "customer_name": "Fatima Noor",
+        "transaction_date": "2024-01-14",
+        "amount": "abc",
+        "currency": "USD",
+        "transaction_type": "debit",
+        "merchant": "Target",
+        "category": "Shopping",
+        "notes": "invalid amount text",
+        "is_valid": false,
+        "validation_errors": [
+            "Amount is not a valid number"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1012",
+        "account_id": "ACC-012",
+        "customer_name": "Lisa Wong",
+        "transaction_date": "2024-01-16",
+        "amount": "75.00",
+        "currency": "EUR",
+        "transaction_type": "debit",
+        "merchant": "Spotify",
+        "category": "Entertainment",
+        "notes": "non USD currency",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
+    },
+    {
+        "transaction_id": "",
+        "account_id": "ACC-017",
+        "customer_name": "Ethan Clark",
+        "transaction_date": "2024-01-21",
+        "amount": "65.00",
+        "currency": "USD",
+        "transaction_type": "debit",
+        "merchant": "Shell",
+        "category": "Fuel",
+        "notes": "missing transaction id",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing transaction ID"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1018",
+        "account_id": "ACC-018",
+        "customer_name": "Sophia Lewis",
+        "transaction_date": "2024-01-22",
+        "amount": "100.00",
+        "currency": "USD",
+        "transaction_type": "transfer",
+        "merchant": "Zelle",
+        "category": "Transfer",
+        "notes": "transaction type not debit or credit",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid transaction type"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1020",
+        "account_id": "ACC-020",
+        "customer_name": "Mia Hall",
+        "transaction_date": "2024-01-24",
+        "amount": "45.00",
+        "currency": "USD",
+        "transaction_type": "debit",
+        "merchant": "Whole Foods",
+        "category": "Groceries",
+        "notes": "duplicate transaction id",
+        "is_valid": false,
+        "validation_errors": [
+            "Duplicate transaction ID"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1024",
+        "account_id": "ACC-024",
+        "customer_name": "Ava Adams",
+        "transaction_date": "2024-01-28",
+        "amount": "NULL",
+        "currency": "USD",
+        "transaction_type": "debit",
+        "merchant": "Best Buy",
+        "category": "Electronics",
+        "notes": "amount is NULL string",
+        "is_valid": false,
+        "validation_errors": [
+            "Missing amount"
+        ]
+    },
+    {
+        "transaction_id": "TXN-1025",
+        "account_id": "ACC-025",
+        "customer_name": "Henry Baker",
+        "transaction_date": "2024-01-29",
+        "amount": "55.25",
+        "currency": "US D",
+        "transaction_type": "debit",
+        "merchant": "Gas Station",
+        "category": "Fuel",
+        "notes": "invalid currency with space",
+        "is_valid": false,
+        "validation_errors": [
+            "Invalid or unsupported currency"
+        ]
+    }
+]

@@ -4,8 +4,15 @@ import os
 
 input_file = os.path.join("data", "messy_transactions.csv")
 output_file = os.path.join("output", "clean_transactions.json")
+valid_output_file = os.path.join("output","valid_transactions.json")
+invalid_output_file = os.path.join("output","invalid_transactions.json")
+
 
 cleaned_transactions = []
+valid_transactions =[]
+invalid_transactions =[]
+
+
 
 seen_transactions_ids = set()
 
@@ -19,7 +26,7 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
             "account_id": row["account_id"].strip(),
             "customer_name": row["customer_name"].strip(),
             "transaction_date": row["transaction_date"].strip(),
-            "amount": row["amount"].strip(),
+            "amount": row["amount"].replace(",", "").replace("$", "").strip(),
             "currency": row["currency"].strip().upper(),
             "transaction_type": row["transaction_type"].strip().lower(),
             "merchant": row["merchant"].strip(),
@@ -41,6 +48,13 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
 
         if not amount or amount.upper() == "NULL":
             validation_errors.append("Missing amount")
+        else:
+            cleaned_amount = amount
+
+            try:
+                float(cleaned_amount)
+            except ValueError:
+                validation_errors.append("Amount is not a valid number")    
 
         if currency != "USD":
             validation_errors.append("Invalid or unsupported currency")
@@ -51,13 +65,28 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
         cleaned_row["is_valid"] = len(validation_errors) == 0
         cleaned_row["validation_errors"] = validation_errors
 
-        cleaned_transactions.append(cleaned_row)
+        if cleaned_row["is_valid"]:
+            valid_transactions.append(cleaned_row)
+        else:
+            invalid_transactions.append(cleaned_row)
 
-output_dir = os.path.dirname(output_file)
+output_dir = os.path.dirname(valid_output_file)
 # Only create the output directory if output_dir is not an empty string (i.e., output_file is not just a filename)
 if output_dir:
     os.makedirs(output_dir, exist_ok=True)
-with open(output_file, mode="w", encoding="utf-8") as json_file:
-    json.dump(cleaned_transactions, json_file, indent=4)
-print(f"Processed {len(cleaned_transactions)} transactions")
-print(f"Clean JSON saved to : {output_file}")
+with open(valid_output_file, mode="w", encoding="utf-8") as json_file:
+    json.dump(valid_transactions, json_file, indent=4)
+
+output_dir = os.path.dirname(invalid_output_file)
+# Only create the output directory if output_dir is not an empty string (i.e., output_file is not just a filename)
+if output_dir:
+    os.makedirs(output_dir, exist_ok=True)
+with open(invalid_output_file, mode="w", encoding="utf-8") as json_file:
+    json.dump(invalid_transactions, json_file, indent=4)
+total_transactions = len(valid_transactions) + len(invalid_transactions)
+
+print(f"Processed {total_transactions} transactions.")
+print(f"Valid transactions: {len(valid_transactions)}")
+print(f"Invalid transactions: {len(invalid_transactions)}")
+print(f"Valid JSON saved to: {valid_output_file}")
+print(f"Invalid JSON saved to: {invalid_output_file}")
