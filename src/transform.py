@@ -5,6 +5,7 @@ import os
 input_file = os.path.join("data", "messy_transactions.csv")
 valid_output_file = os.path.join("output","valid_transactions.json")
 invalid_output_file = os.path.join("output","invalid_transactions.json")
+summary_output_file = os.path.join("output","summary_report.json")
 
 
 valid_transactions = []
@@ -66,6 +67,14 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
         else:
             invalid_transactions.append(cleaned_row)
 
+
+summary_report = {
+    "total_transactions": len(valid_transactions) + len(invalid_transactions),
+    "valid_transactions": len(valid_transactions),
+    "invalid_transactions": len(invalid_transactions)
+}
+
+
 valid_output_dir = os.path.dirname(valid_output_file)
 if valid_output_dir:
     os.makedirs(valid_output_dir, exist_ok=True)
@@ -78,9 +87,8 @@ if invalid_output_dir:
 with open(invalid_output_file, mode="w", encoding="utf-8") as json_file:
     json.dump(invalid_transactions, json_file, indent=4)
 
-total_transactions = len(valid_transactions) + len(invalid_transactions)
-print(f"Processed {total_transactions} transactions.")
-print(f"Processed {len(valid_transactions) + len(invalid_transactions)} transactions.")
-print(f"Invalid transactions: {len(invalid_transactions)}")
-print(f"Valid JSON saved to: {valid_output_file}")
-print(f"Invalid JSON saved to: {invalid_output_file}")
+summary_report_dir = os.path.dirname(summary_report)
+if summary_report_dir:
+    os.makedirs(summary_report_dir, exist_ok=True)
+with open(summary_output_file, mode="w", encoding="utf-8") as summary_file:
+    json.dump(summary_report, summary_file, indent=4)
