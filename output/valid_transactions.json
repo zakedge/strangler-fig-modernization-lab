@@ -84,20 +84,6 @@
         "validation_errors": []
     },
     {
-        "transaction_id": "TXN-1009",
-        "account_id": "ACC-009",
-        "customer_name": "Chen Wei",
-        "transaction_date": "01/13/2024",
-        "amount": "300.00",
-        "currency": "USD",
-        "transaction_type": "debit",
-        "merchant": "Apple",
-        "category": "Electronics",
-        "notes": "invalid date month",
-        "is_valid": true,
-        "validation_errors": []
-    },
-    {
         "transaction_id": "TXN-1011",
         "account_id": "ACC-011",
         "customer_name": "Omar Ali",

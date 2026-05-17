@@ -1,10 +1,11 @@
 {
     "total_transactions": 31,
-    "valid_transactions": 22,
-    "invalid_transactions": 9,
+    "valid_transactions": 21,
+    "invalid_transactions": 10,
     "error_breakdown": {
         "Missing amount": 2,
         "Invalid or unsupported currency": 3,
+        "Invalid transaction date": 1,
         "Amount is not a valid number": 1,
         "Missing transaction ID": 1,
         "Invalid transaction type": 1,

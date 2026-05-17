@@ -59,8 +59,7 @@ def standardize_date(date_value):
     "%m%d%Y",        # 01052024
     "%d%m%Y",        # 05012024
     "%Y-%m-%d %H:%M:%S",  # 2024-01-05 14:30:00
-    "%m/%d/%Y %H:%M:%S",  # 01/05/2024 14:30:00
-    "%Y-%d-%m"
+    "%m/%d/%Y %H:%M:%S"  # 01/05/2024 14:30:00
     ] 
 
     for date_format in accepted_formats:
