@@ -3,14 +3,12 @@ import json
 import os
 
 input_file = os.path.join("data", "messy_transactions.csv")
-output_file = os.path.join("output", "clean_transactions.json")
 valid_output_file = os.path.join("output","valid_transactions.json")
 invalid_output_file = os.path.join("output","invalid_transactions.json")
 
 
-cleaned_transactions = []
-valid_transactions =[]
-invalid_transactions =[]
+valid_transactions = []
+invalid_transactions = []
 
 
 
@@ -49,10 +47,8 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
         if not amount or amount.upper() == "NULL":
             validation_errors.append("Missing amount")
         else:
-            cleaned_amount = amount
-
             try:
-                float(cleaned_amount)
+                float(amount)
             except ValueError:
                 validation_errors.append("Amount is not a valid number")    
 
@@ -70,23 +66,21 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
         else:
             invalid_transactions.append(cleaned_row)
 
-output_dir = os.path.dirname(valid_output_file)
-# Only create the output directory if output_dir is not an empty string (i.e., output_file is not just a filename)
-if output_dir:
-    os.makedirs(output_dir, exist_ok=True)
+valid_output_dir = os.path.dirname(valid_output_file)
+if valid_output_dir:
+    os.makedirs(valid_output_dir, exist_ok=True)
 with open(valid_output_file, mode="w", encoding="utf-8") as json_file:
     json.dump(valid_transactions, json_file, indent=4)
 
-output_dir = os.path.dirname(invalid_output_file)
-# Only create the output directory if output_dir is not an empty string (i.e., output_file is not just a filename)
-if output_dir:
-    os.makedirs(output_dir, exist_ok=True)
+invalid_output_dir = os.path.dirname(invalid_output_file)
+if invalid_output_dir:
+    os.makedirs(invalid_output_dir, exist_ok=True)
 with open(invalid_output_file, mode="w", encoding="utf-8") as json_file:
     json.dump(invalid_transactions, json_file, indent=4)
-total_transactions = len(valid_transactions) + len(invalid_transactions)
 
+total_transactions = len(valid_transactions) + len(invalid_transactions)
 print(f"Processed {total_transactions} transactions.")
-print(f"Valid transactions: {len(valid_transactions)}")
+print(f"Processed {len(valid_transactions) + len(invalid_transactions)} transactions.")
 print(f"Invalid transactions: {len(invalid_transactions)}")
 print(f"Valid JSON saved to: {valid_output_file}")
 print(f"Invalid JSON saved to: {invalid_output_file}")
