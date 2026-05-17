@@ -4,16 +4,26 @@ import os
 import logging
 from datetime import datetime
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s %(message)s"
-)
-
 input_file = os.path.join("data", "messy_transactions.csv")
 valid_output_file = os.path.join("output","valid_transactions.json")
 invalid_output_file = os.path.join("output","invalid_transactions.json")
 summary_output_file = os.path.join("output","summary_report.json")
 log_file = os.path.join("logs","transaction_processor.log")
+
+
+log_dir = os.path.dirname(log_file)
+
+if log_dir:
+    os.makedirs(log_dir,exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    filename= log_file,
+    filemode="a"
+)
+
+logging.info("Transaction processing started")
 
 
 valid_transactions = []
@@ -149,5 +159,6 @@ with open(summary_output_file, mode="w", encoding="utf-8") as summary_file:
     json.dump(summary_report, summary_file, indent=4)
 
 
-logging.info(f"Processed {summary_report["total_transactions"]} transactions.")
-invalid_transactions.append(cleaned_row)
+logging.info(f"Processed {summary_report['total_transactions']} transactions.")
+
+logging.info("Transaction processing completed")
