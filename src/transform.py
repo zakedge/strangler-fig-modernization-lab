@@ -37,6 +37,7 @@ logging.info("Transaction processing started")
 
 valid_transactions = []
 invalid_transactions = []
+error_breakdown = {}
 
 def standardize_date(date_value):
     date_value = date_value.strip()
@@ -137,6 +138,8 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
             valid_transactions.append(cleaned_row)
         else:
             invalid_transactions.append(cleaned_row)
+            for error in validation_errors:
+                error_breakdown[error] = error_breakdown.get(error, 0) + 1
             logging.warning(
             f"Invalid transaction {transaction_id}: {validation_errors}"
 )
@@ -145,7 +148,8 @@ with open(input_file, mode="r", encoding="utf-8") as csv_file:
 summary_report = {
     "total_transactions": len(valid_transactions) + len(invalid_transactions),
     "valid_transactions": len(valid_transactions),
-    "invalid_transactions": len(invalid_transactions)
+    "invalid_transactions": len(invalid_transactions),
+    "error_breakdown": error_breakdown
 }
 
 
