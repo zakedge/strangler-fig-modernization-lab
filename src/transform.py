@@ -4,6 +4,15 @@ import os
 import logging
 from datetime import datetime
 
+
+def write_json_file(file_path, data):
+    output_dir = os.path.dirname(file_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+    with open(file_path, mode="w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=4)
+
+
 input_file = os.path.join("data", "messy_transactions.csv")
 valid_output_file = os.path.join("output","valid_transactions.json")
 invalid_output_file = os.path.join("output","invalid_transactions.json")
@@ -140,25 +149,15 @@ summary_report = {
 }
 
 
-valid_output_dir = os.path.dirname(valid_output_file)
-if valid_output_dir:
-    os.makedirs(valid_output_dir, exist_ok=True)
-with open(valid_output_file, mode="w", encoding="utf-8") as json_file:
-    json.dump(valid_transactions, json_file, indent=4)
+write_json_file(valid_output_file, valid_transactions)
 
-invalid_output_dir = os.path.dirname(invalid_output_file)
-if invalid_output_dir:
-    os.makedirs(invalid_output_dir, exist_ok=True)
-with open(invalid_output_file, mode="w", encoding="utf-8") as json_file:
-    json.dump(invalid_transactions, json_file, indent=4)
+write_json_file(invalid_output_file, invalid_transactions)
 
-summary_report_dir = os.path.dirname(summary_output_file)
-if summary_report_dir:
-    os.makedirs(summary_report_dir, exist_ok=True)
-with open(summary_output_file, mode="w", encoding="utf-8") as summary_file:
-    json.dump(summary_report, summary_file, indent=4)
+write_json_file(summary_output_file, summary_report)
 
 
 logging.info(f"Processed {summary_report['total_transactions']} transactions.")
 
 logging.info("Transaction processing completed")
+
+
